@@ -11,6 +11,16 @@ export const getProducts = async (req, res) => {
 	}
 };
 
+export const getProductsCount = async (req, res) => {
+	try {
+		const count = await Product.countDocuments({});
+		res.status(200).json({ success: true, count });
+	} catch (error) {
+		console.log("error in counting products:", error.message);
+		res.status(500).json({ success: false, message: "Server Error" });
+	}
+};
+
 export const createProduct = async (req, res) => {
 	const product = req.body; // user will send this data.
 
