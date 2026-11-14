@@ -1,0 +1,19 @@
+name: Quality Analysis pipeline
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  sonarqube-code-quality-scan-job:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
