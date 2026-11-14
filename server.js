@@ -47,6 +47,10 @@ app.get("/test", (req, res) => {
   res.send("Hello Team");
 });
 
+app.get("/v3/status", (req, res) => {
+  res.send("v3 is alpha version of the API. It is still under development and may change in the future.");
+});
+
 app.get("/abc", (req, res) => {
   res.send("Hello ABC");
 });
